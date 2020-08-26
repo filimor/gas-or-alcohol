@@ -7,6 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public result: String = "Resultado"
+
+  calculate() {
+    if(this.priceAlcohol && this.priceGasoline) {
+      var pAlcohol = parseFloat(this.priceAlcohol)
+      var pGasoline = parseFloat(this.priceGasoline)
+      if(pAlcohol / pGasoline >= 0.7) {
+        this.result = "Melhor utilizar Gasolina"
+      } else {
+        this.result = "Melhor utilizar Álcool"
+      }
+    } else {
+      this.result = "Preencha corretamente os campos!"
+    }
+  }
 
 }
